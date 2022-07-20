@@ -21,7 +21,7 @@ public class Main {
         // от этого получается, что метод ADD складывает 2 матрицы (а.add(b))
         // IMatrix - возвращаемый тип интерфейс, так указано в самом методе!
         IMatrix result = a.add(b);
-        result.printToConsole();
+        result.printToConsole(); //sdadasd
 
     }
 }
