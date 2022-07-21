@@ -1,6 +1,4 @@
-package Lexa12;
-
-import Lesson13.Moneta;
+package Lesson13;
 
 import java.util.HashSet;
 
@@ -21,8 +19,8 @@ public class Main3 {
         monetas.add(moneta5);
         monetas.add(moneta6);
 
-        for (Moneta moneta : monetas) {
-            System.out.println(moneta);
+        for (Moneta m : monetas) {
+            System.out.println(m);
         }
     }
 }
