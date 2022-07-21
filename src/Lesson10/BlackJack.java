@@ -74,7 +74,7 @@ public class BlackJack implements IBlackJack {
         int valueWinner = 0; //21
         for (Player p : players) {
             if (p.isCanWin() && p.valuesHand() > valueWinner){ //p.isCanWin() - проверка в игре ли текущий игрок   //p.valuesHand() > valueWinner - у текущего игрока очки больше, чем сохранено в valueWinner
-
+                valueWinner = p.valuesHand();
             }
         }
 
