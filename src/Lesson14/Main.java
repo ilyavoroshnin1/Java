@@ -15,7 +15,14 @@ public class Main {
                  else if (i == 10) {
                     String ip = result.split(":")[0];
                     int port = Integer.parseInt(result.split(":")[1]); // а это ПРЕОБРАЗОВАНИЕ
-                    checkProxy(ip, port);
+
+                    Thread thread = new Thread(new Runnable() { // создаем многопоточность за счет создания АНОНИМНОГО КЛАССА
+                        @Override
+                        public void run() {
+                            checkProxy(ip, port);
+                        }
+                    });
+                    thread.start();
                     result = "";
                 }
                 else if (i == 9) {
