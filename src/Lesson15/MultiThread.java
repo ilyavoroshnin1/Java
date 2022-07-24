@@ -13,7 +13,7 @@ public class MultiThread { //МНОГОПОТОЧНОСТЬ
 
 
 //        Thread thread1 = new Thread( new MyRunnableClass("Мыть посуду")); // создаем новую перем-ую от класса "Thread"
-//        // конструктор класса потока "Thread" требует, чтобы мы вкладывали (в скобки) разные пар-ры, но мы выбрали "Runnable target - реализует интерфейс Runnable"
+//        // конструктор класса потока "Thread" требует, чтобы мы вкладывали (в скобки) разные пар-ры, но мы выбрали "Runnable target - ОБЪЕКТ, КОТОРЫЙ РЕАЛИЗУЕТ "Runnable"!!!!!!
 //        Thread thread2 = new Thread( new MyRunnableClass("Чесать жопу"));
 //        Thread thread3 = new Thread( new MyRunnableClass("Поправлять незаметно яйца"));
 //        thread1.start(); // ".start()" - метод по одновременному(многопоточному) запуску нескольких задач
@@ -55,6 +55,10 @@ public class MultiThread { //МНОГОПОТОЧНОСТЬ
 }
 
 
+
+
+
+
 // 2) ИСПОЛЬЗУЕМ ИНТЕРФЕЙСЫ ДЛЯ НАСЛЕДОВАНИЯ ОТ РАЗНЫХ КЛАССОВ - имплементирование интерфейса "Runnable"
 // имплементирование интерфейса "Runnable" нужно для какого нибудь класса, который уже наследовался от другого родительского, но ему
 // также НУЖНА МНОГОПОТОЧНОСТЬ, которая создается за счет "RUN"
@@ -74,16 +78,21 @@ class MyRunnableClass implements Runnable {
 }
 
 
+
+
+
+
+
 // 1) ПЕРЕОПРЕДЕЛЕНИЕ метода "run" или при "СОЗДАНИИ КЛАССА" - наследование от "Thread"
 class MyThread extends Thread {
     String task; // дополнительно поле создаем сами, это НАЗВАНИЕ ЗАДАЧИ, которую даем компьютеру
 
-    public MyThread(String task) { // создали конкструктор
-        this.task = task;
+    public MyThread(String task) { // создали конкструктор        "(String task)" - во вход пар-ры передается САМА задача (выше)
+        this.task = task; // теперь эта задача из вх. пар. ПРИСВАИВАЕТСЯ конструктору
     }
 
     @Override
-    public void run() {
+    public void run() { // переопределяем метод "run"
         for (int i = 0; i < 100; i++) {
             System.out.println("Задание " + task + " выполнено на " + i + "%");
         }
