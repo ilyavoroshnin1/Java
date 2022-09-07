@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
-public class MultiMapImpt <K, V> extends HashMap<K, V> implements MultiMap <K, V> {
+public class MultiMapImpt <K, V> extends HashMap<K, V> implements MultiMap <K, V> { // 1
 
     private HashMap<K, List<V>> multiMap = new HashMap<>();
 
@@ -34,3 +34,7 @@ public class MultiMapImpt <K, V> extends HashMap<K, V> implements MultiMap <K, V
         return value;
     }
 }
+
+// 1 - параметризация, когда идет наслед-е и имплиментирование одновременно. "MultiMap" очень похож на обычный
+// "HashMap", только у "MultiMap" у одного ключа несколько значений! Значения можно хранить в отдельной кол-ции. Потому идет
+// наследование от "HashMap"
